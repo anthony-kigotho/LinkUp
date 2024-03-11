@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EBF3FF;
+}
+
+.btn-red {
+    border: none;
+    outline: none;
+    background-color: #FE1515;
+    color: white;
+    border-radius: 20px;
+    width: 60px;
+    height: 30px;
+    padding: 0px;
+}
+
+.btn-edit {
+    font-weight: 800;
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 120px;
+    height: 30px;
+    color: #FE1515;
+    background: transparent;
+}
+
+.btn-edit:hover {
+    background: rgba(255, 255, 255, 0.449);
+}
+
+#profile-container {
+    background: linear-gradient(to bottom, #FE1515, transparent);
+    height: 350px;
+}

@@ -1,0 +1,139 @@
+### USER REGISTRATION
+POST http://localhost:4500/user/register
+Content-Type: application/json
+
+{
+    "display_name": "Em",
+    "username": "marshall",
+    "email": "em@gmail.com",
+    "password" : "Pass1234"
+}
+
+### UPDATE USER 
+PUT  http://localhost:4500/user/update/3256d9ad-5075-47f1-96ff-dea20df4a35c
+Content-Type: application/json
+
+{
+    "user_image": "https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80",
+    "display_name": "Em",
+    "email": "em@gmail.com",
+    "bio": "goat"
+}
+
+### USER LOGIN
+POST http://localhost:4500/user/login
+Content-Type: application/json
+
+{
+    "username": "lastborn",
+    "password" : "Pass1234"
+}
+
+### CREATE POST
+POST http://localhost:4500/user/post
+Content-Type: application/json
+
+{
+    "user_id": "82e062eb-d240-4a04-b607-3f55267d45f1",
+    "post_content" : "post content"
+}
+
+
+### GET POSTS
+GET  http://localhost:4500/user/posts/82e062eb-d240-4a04-b607-3f55267d45f1
+
+
+### GET POSTS FOR FOLLOWING
+GET  http://localhost:4500/user/following/posts/82e062eb-d240-4a04-b607-3f55267d45f1
+
+
+### LIKE POST
+POST http://localhost:4500/user/post/like/ceab6980-9691-4f97-b4b7-39d9be929263
+Content-Type: application/json
+
+{
+    "user_id": "8b101d40-7afa-4af2-ac99-bf9fa4de3aaf"
+}
+
+
+### DELETE POST
+DELETE  http://localhost:4500/user/post/delete/99f18b04-3401-41ad-abd4-c6d528bdd4da
+
+
+### ADD COMMENT
+POST http://localhost:4500/user/post/comment
+Content-Type: application/json
+
+{
+    "user_id": "3256d9ad-5075-47f1-96ff-dea20df4a35c",
+    "post_id" : "b7b3cb31-78bb-431a-b1fa-f11d3ba65a89",
+    "comment_content" : "Cool"
+}
+
+
+### UPDATE COMMENT
+PUT  http://localhost:4500/user/post/comment/update/e01db492-fb21-4aea-8ac6-a41da61cf023
+Content-Type: application/json
+
+{
+    "comment_content" : "Cool"
+}
+
+
+### GET MAIN COMMENTS
+GET  http://localhost:4500/user/post/main-comments/d13ba15c-1061-4a83-bc13-16d61ae2879e
+
+
+### GET SUB COMMENTS
+GET  http://localhost:4500/user/post/sub-comments/ce36cc93-1a31-45bd-bcff-ceb8ca5c3f92
+
+
+### DELETE COMMENT
+DELETE  http://localhost:4500/user/comment/delete/e6afd731-f735-4e56-885e-75aef0fab1a6
+
+
+### LIKE COMMENT
+POST http://localhost:4500/user/comment/like/3411f02e-b751-4063-ade8-18986e4ab047
+Content-Type: application/json
+
+{
+    "user_id": "8b101d40-7afa-4af2-ac99-bf9fa4de3aaf"
+}
+
+
+### ADD FOLLOWER
+POST http://localhost:4500/user/follow/3256d9ad-5075-47f1-96ff-dea20df4a35c
+Content-Type: application/json
+
+{
+    "follower_user_id" : "3256d9ad-5075-47f1-96ff-dea20df4a35c"
+}
+
+### GET ALL FOLLOWERS
+GET  http://localhost:4500/user/followers/f0b2a7a5-84ee-4896-9a54-1c21bd223bd7
+
+
+### GET ALL FOLLOWINGS
+GET  http://localhost:4500/user/followings/3256d9ad-5075-47f1-96ff-dea20df4a35c
+
+
+### GET ALL USERS YOU  DON'T FOLLOW
+GET  http://localhost:4500/user/users-to-follow/3256d9ad-5075-47f1-96ff-dea20df4a35c
+
+
+### GET MORE USERS TO FOLLOW
+GET  http://localhost:4500/user/show-more-users/3256d9ad-5075-47f1-96ff-dea20df4a35c/08973b52-29d9-40fc-8f30-70800a1e0a07
+
+
+### GET FOLLOWERS YOU FOLLOW
+GET  http://localhost:4500/user/followers-you-follow/3256d9ad-5075-47f1-96ff-dea20df4a35c
+
+
+### GET FOLLOWERS YOU DON'T FOLLOW BACK
+GET  http://localhost:4500/user/followers-you-dont-follow/f0b2a7a5-84ee-4896-9a54-1c21bd223bd7
+
+
+### SEARCH USER
+GET  http://localhost:4500/user/t
+
+

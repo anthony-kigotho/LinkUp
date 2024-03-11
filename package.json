@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "cypress": "^13.2.0",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.5",
+    "joi": "^17.10.2"
+  }
+}

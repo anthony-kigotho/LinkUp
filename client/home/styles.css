@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EBF3FF;
+}
+
+.btn-red {
+    border: none;
+    outline: none;
+    background-color: #FE1515;
+    color: white;
+    border-radius: 20px;
+    width: 60px;
+    height: 30px;
+    padding: 0px;
+}
+
+@media (max-width: 768px) {
+    #left-sidebar {
+        display: none;
+    }
+
+    #right-sidebar {
+        display: none;
+    }
+
+    #feed-container {
+        width: 100vw;
+    }
+
+    #users-link {
+        display: inline !important;
+    }
+
+    #post-link {
+        display: block !important;
+    }
+
+    #profile-link {
+        display: block !important;
+    }
+}

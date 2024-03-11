@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EBF3FF;
+}
+
+.btn-red {
+    background-color: #FE1515;
+    color: white;
+}
+
+
+.btn {
+    border-radius: 10px;
+}

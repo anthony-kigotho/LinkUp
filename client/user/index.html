@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap ICONS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Profile</title>
+</head>
+<body>
+    <section class="container-fluid mt-3 pe-0">
+        <div class="container-fluid row pe-0 position-relative">
+            <div class="col-2" id="left-sidebar">
+                <div class="d-flex flex-column justify-content-center gap-3 position-fixed">
+                    <h5 style="color: #FE1515; font-weight: 800;">LinkUP</h5>
+                    <div class="d-flex flex-column gap-1">
+                        <a href="../home/index.html" style="text-decoration: none;">
+                            <h6 style="color: #000; font-weight: bold;"><i class="bi bi-house fs-3 me-2"></i>  Home</h6>
+                        </a>
+                        <a href="../profile/index.html" style="text-decoration: none;">
+                            <h6 style="color: #000; font-weight: bold;"><i class="bi bi-person-fill fs-3 me-2"></i> Profile</h6>
+                        </a>
+                        <a type="button" role="button" style="text-decoration: none;" id="logout">
+                            <h6 style="color: #000; font-weight: bold;"><i class="bi bi-box-arrow-left fs-3 me-2"></i> Log Out</h6>
+                        </a>
+                    </div>
+                    <button class="btn btn-red w-100 mt-5" data-bs-toggle="modal" data-bs-target="#postModal">Post</button>
+                </div>
+            </div>
+
+            <div class="col-7 border border-top-0 border-bottom-0 ps-3" id="feed-container">
+                
+                <div class="d-flex justify-content-between justify-content-md-center ">
+                    <a href="" style="text-decoration: none; display: none;" id="profile-link">
+                        <img style="width: 40px; height: 40px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                    </a>
+                    <a href="../home/index.html" style="text-decoration: none; display: none;" id="home">
+                        <img src="../assets/images/home.png" style="width: 30px; height: 30px;" alt="" >
+                    </a>
+                    <a href="../home/index.html" style="text-decoration: none;">
+                        <h3 class="fw-bold text-center" style="color: #FE1515;">LinkUP</h3>
+                    </a>
+                    <a type="button" role="button" style="text-decoration: none; display: none;" id="users-link">
+                        <img src="../assets/images/users.png" style="width: 30px; height: 30px;" alt="" >
+                    </a>
+                    <a type="button" role="button" style="text-decoration: none; display: none;" id="logout">
+                        <img src="../assets/images/logout2.png" style="width: 30px; height: 30px;" alt="" >
+                    </a>
+                </div>
+
+                <div id="feed-container-body">
+    
+                    <div class="d-flex flex-column justify-content-center" id="profile-container">
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <h1 class="text-light" style="font-weight: 800;">LinkUP</h1>
+                                <p class="text-light">The next generation social network</p>
+                            </div>
+                        </div>
+    
+                        <div id="user-container" class="container-fluid d-flex flex-column">
+                            <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="" id="profile-image">
+                            <p class="mb-0" style="color: #000; font-weight: 800;" id="profile-display-name"> Tony</p>
+                            <p class="m-0 fw-light" id="profile-username">@lastborn</p>
+                            <p class="m-0 fw-normal fs-6" id="userbio"> UI/UX Designer Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                            <p class="m-0 fw-light"><i class="bi bi-calendar-event"></i> <span id="joined"> Joined July 2023</span> </p>
+                            <div class="d-flex flex-sm-row flex-column justify-content-between">
+                                <div class="d-flex gap-3">
+                                    <p><span style="color: #000; font-weight: 800;" id="followings-count">47</span> Following</p>
+                                    <p><span style="color: #000; font-weight: 800;" id="followers-count">89</span> Followers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="d-flex justify-content-around mt-1">
+                        <a role="button" type="button" style="color: #FE1515; text-decoration: none; font-weight: bold;" id="posts-btn" >Posts</a>
+                        <a role="button" type="button" style="color: #000; text-decoration: none; font-weight: bold;" id="following-btn">Following</a>
+                        <a role="button" type="button" style="color: #000; text-decoration: none; font-weight: bold;" id="followers-btn">Followers</a>
+                    </div>
+
+                    <!-- Post -->
+                    <div id="posts">
+                        
+                        <!-- <div class="container-fluid p-0 mt-3 row">
+                            <div class="col-2 col-xl-1 p-0">
+                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                            </div>
+                            <div class="col p-1">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-1">
+                                            <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                            <p class="m-0"> @lastborn <i class="bi bi-dot"></i> April 1</p>
+                                        </div>
+                                    </div>
+                                    <div id="post-body">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum veritatis, blanditiis placeat aut consequatur beatae. Eligendi inventore autem modi, qui nisi earum praesentium repellendus nulla dignissimos alias dolor distinctio accusamus!</p>
+                                        <img style="width: 80%; height: 350px; border-radius: 5%; object-fit: cover;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-5">
+                                            <a type="button" role="button" style="text-decoration: none;" id="main-comment-btn"><i class="bi bi-chat"></i> 2</a>
+                                            <a type="button" role="button" style="text-decoration: none;"><i class="bi bi-suit-heart"></i> 5</a>
+                                        </div>
+                                        <div class="dropup">
+                                            <a type="button" role="button" id="dropdownMenu" data-bs-toggle="dropdown" >
+                                                <i class="bi bi-three-dots"></i>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <button class="dropdown-item" type="button"><i class="bi bi-pencil-square"></i> Edit Post</button>
+                                                <button class="dropdown-item" type="button"><i class="bi bi-trash"></i> Delete Post</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2" id="comment-section">
+                                        <div id="comment">
+                                            <div class="container-fluid p-0 mt-3 ms-1 row" id="main-comment" style="display: none;">
+                                                <div class="d-flex flex-column flex-sm-row justify-content-between">
+                                                    <textarea class="p-2" id="exampleFormControlTextarea1" rows="1" style="width: 70%; border-radius: 30px;" placeholder="Add a comment"></textarea>
+                                                    <button class="btn-comment mt-2">Commment</button>
+                                                </div>
+        
+                                                <div id="main-comment-item">
+                                                    <div class="col-2 col-xl-1 p-0 mt-2">
+                                                        <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                                                    </div>
+                                                    <div class="col p-1">
+                                                        <div class="d-flex flex-column">
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex gap-1">
+                                                                    <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                                                    <p class="m-0"> @lastborn <i class="bi bi-dot"></i> 3 days ago</p>
+                                                                </div>
+                                                            </div>
+                                                            <div id="comment-body">
+                                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum veritatis, blanditiis placeat aut consequatur beatae. </p>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div class="d-flex gap-5">
+                                                                    <a type="button" role="button" style="text-decoration: none;" id="sub-comment-btn"><i class="bi bi-chat"></i> 1</a>
+                                                                    <a type="button" role="button" style="text-decoration: none;"><i class="bi bi-suit-heart"></i> 5</a>
+                                                                </div>
+                                                                <div class="dropup">
+                                                                    <a type="button" role="button" id="dropdownMenu" data-bs-toggle="dropdown" >
+                                                                        <i class="bi bi-three-dots"></i>
+                                                                    </a>
+                                                                    <div class="dropdown-menu">
+                                                                        <button class="dropdown-item" type="button"><i class="bi bi-pencil-square"></i> Edit Comment</button>
+                                                                        <button class="dropdown-item" type="button"><i class="bi bi-trash"></i> Delete Comment</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+        
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+
+                    <!-- Following -->
+                    <div id="followings" style="display: none;">
+                        <div class="container-fluid mt-3 row">
+                            <div class="col-2 col-xl-1 p-0">
+                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                            </div>
+                            <div class="col px-3">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-1">
+                                            <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                            <p class="m-0"> @lastborn </p>
+                                        </div>
+                                        <a href="" type="button" style="color: #FE1515; text-decoration: none; font-weight: 800;" >Following</a>
+                                    </div>
+                                    <div id="bio">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid mt-3 row">
+                            <div class="col-2 col-xl-1 p-0">
+                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                            </div>
+                            <div class="col px-3">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-1">
+                                            <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                            <p class="m-0"> @lastborn </p>
+                                        </div>
+                                        <a href="" type="button" style="color: #FE1515; text-decoration: none; font-weight: 800;" >Following</a>
+                                    </div>
+                                    <div id="bio">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Followers -->
+                    <div id="followers" style="display: none;">
+
+                        <div class="container-fluid mt-3 row">
+                            <div class="col-2 col-xl-1 p-0">
+                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                            </div>
+                            <div class="col px-3">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-1">
+                                            <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                            <p class="m-0"> @lastborn </p>
+                                        </div>
+                                        <a href="" type="button" style="color: #FE1515; text-decoration: none; font-weight: 800;" >Follow Back</a>
+                                    </div>
+                                    <div id="bio">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid mt-3 row">
+                            <div class="col-2 col-xl-1 p-0">
+                                <img style="width: 60px; height: 60px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                            </div>
+                            <div class="col px-3">
+                                <div class="d-flex flex-column">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-1">
+                                            <p class="mb-0" style="color: #000; font-weight: 800;"> Tony</p>
+                                            <p class="m-0"> @lastborn </p>
+                                        </div>
+                                        <a href="" type="button" style="color: #FE1515; text-decoration: none; font-weight: 800;" >Follow Back</a>
+                                    </div>
+                                    <div id="bio">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                                    </div>
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class="col-3 pe-0" id="right-sidebar">
+                <div class="d-flex flex-column" >
+                    <input class="p-1" type="search" placeholder="Search" style="width: 100%; border: none; outline: none;" id="search">
+                    <div class="container-fluid bg-light mt-3 px-1 py-2">
+                        <h5 class="m-0 text-center" style="color: #000; font-weight: 800;"> People to follow</h5>
+
+                        <div id="follow-container">
+
+                            <!-- <div class="d-flex flex-row justify-content-around align-items-center-lg mt-3">
+                                <img style="width: 40px; height: 40px; border-radius: 50%;" src="https://images.unsplash.com/photo-1522196772883-393d879eb14d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1885&q=80" alt="">
+                                <div class="d-flex flex-column">
+                                    <p class="fw-bold m-0">Tony</p>
+                                    <p class="m-0">@lastborn</p>
+                                </div>
+                                <button class="btn btn-red">Follow</button>
+                            </div> -->
+                            
+                        </div>
+                        
+                        
+                        
+                        <a type="button" class="mt-3" style="color: #FE1515; text-decoration: none;" id="show-more"> Show more</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        
+
+        <!-- Post Modal -->
+        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 10px; background-color: #EBF3FF;">
+                <div class="modal-header py-0">
+                <h4 class="modal-title" style="color: #FE1515; font-weight: 800;" id="postModalLabel">Create Post</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="post-form">
+                    <div class="modal-body mt-1 py-0">
+                        <textarea class="form-control" aria-label="With textarea" placeholder="Write something" id="post-content"></textarea>
+                        <div style="position: relative;">
+                            <img class="mt-1" style="width: 70%; height: 250px; border-radius: 5%; object-fit: cover; display: none;" src="" alt="" id="img-output">
+                            <button class="btn-close btn-close-white bg-light" style="position: absolute; top: 0; display: none;" id="clear-post-image"> </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer py-0 d-flex justify-content-between">
+                        <label for="post-img">
+                            <i class="bi bi-camera fs-1 text-danger"></i>
+                            <input class="d-none" type="file" id="post-img" name="post-img">
+                        </label>
+                        <button type="submit" class="btn btn-red w-50" id="post-btn">Post</button>
+                        <button type="button" class="btn btn-red w-50" style="display: none;" id="update-post">Update</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <a role="button" type="button" style="text-decoration: none; position: fixed; bottom: 30px; right: 0; z-index: 999; display: none;" id="post-link" data-bs-toggle="modal" data-bs-target="#postModal">
+            <img src="../assets/images/post.png" alt="">
+        </a>
+
+    </section>
+   
+    <script src="./script.js"></script>
+    <script src="../script.js"></script>
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+</html>
+
+

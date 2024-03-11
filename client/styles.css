@@ -1,0 +1,42 @@
+.btn-comment {
+    font-weight: 600;
+    color: white;
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 120px;
+    height: 30px;
+    background-color: #FE1515;
+}
+
+@media (max-width: 768px) {
+    #left-sidebar {
+        display: none;
+    }
+
+    #right-sidebar {
+        display: none;
+    }
+
+    #feed-container {
+        width: 100vw;
+    }
+
+    #users-link {
+        display: inline !important;
+    }
+
+    #home {
+        display: inline !important;
+    }
+    #logout {
+        display: inline !important;
+    }
+
+    #post-link {
+        display: block !important;
+    }
+
+    #profile-link {
+        display: block !important;
+    }
+}
